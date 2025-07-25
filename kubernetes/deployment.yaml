@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meu-app
+  namespace: meu-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: meu-app
+  template:
+    metadata:
+      labels:
+        app: meu-app
+    spec:
+      containers:
+        - name: meu-app
+          image: ghcr.io/thduran/workflow-test:latest
+          ports:
+            - containerPort: 3000
+
