@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: meu-app
-  namespace: meu-app
 spec:
   replicas: 1
   selector:
@@ -14,8 +13,19 @@ spec:
         app: meu-app
     spec:
       containers:
-        - name: meu-app
+        - name: app
           image: ghcr.io/thduran/workflow-test:latest
           ports:
             - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: meu-app-service
+spec:
+  selector:
+    app: meu-app
+  ports:
+    - port: 80
+      targetPort: 3000
 
