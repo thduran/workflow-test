@@ -17,6 +17,9 @@ spec:
           image: ghcr.io/thduran/workflow-test:latest
           ports:
             - containerPort: 3000
+      imagePullSecrets:
+        - name: regcred
+
 ---
 apiVersion: v1
 kind: Service
