@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: ghcr.io/thduran/workflow-erro:latest
+          image: ghcr.io/thduran/workflow-erro:erro
           ports:
             - containerPort: 3000
       imagePullSecrets:
